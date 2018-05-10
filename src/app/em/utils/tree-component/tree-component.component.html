@@ -1,0 +1,13 @@
+<ul nz-menu="false" [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+  <li nz-submenu="false" *ngFor="let item of treelists">
+
+    <span title><i class="anticon anticon-user"></i><span  class="nav-text">{{item.menu_name}}</span></span>
+
+    <ul>
+      <li (click)="itemClick(childItem.menu_url)" *ngFor="let childItem of item.nodes" nz-menu-item>{{childItem.menu_name}}</li>
+    </ul>
+
+    <!--调用组件本身并 传值给下级: [treelists]="item.items"-->
+    <!-- <app-tree-component *ngIf="item.items && item.items.length" [treelists]="item.items"></app-tree-component> -->
+  </li>
+</ul>
